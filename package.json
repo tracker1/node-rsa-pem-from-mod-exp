@@ -1,6 +1,6 @@
 {
   "name": "rsa-pem-from-mod-exp",
-  "version": "0.2.0",
+  "version": "0.8.0",
   "description": "Create RSA Public Key PEM from Modulus and Exponent value in node.js",
   "main": "index.js",
   "scripts": {

@@ -26,23 +26,7 @@ function rsaPublicKeyPem(modulus_b64, exponent_b64) {
         ) + 
         '02' + encoded_modlen + modulus_hex +
         '02' + encoded_explen + exponent_hex;
- 
-    var seq2 = 
-        '30 0d ' +
-          '06 09 2a 86 48 86 f7 0d 01 01 01' +
-          '05 00 ' +
-        '03' + encodeLengthHex(encoded_pubkey.length/2 + 1) +
-        '00' + encoded_pubkey;
- 
-    seq2 = seq2.replace(/ /g,'');
- 
-    var der_hex = '30' + encodeLengthHex(seq2.length/2) + seq2;
- 
-    der_hex = der_hex.replace(/ /g, '');
- 
-    var der = new Buffer(der_hex, 'hex');
-    var der_b64 = der.toString('base64');
- 
+
     var der_b64 = new Buffer(encoded_pubkey, 'hex').toString('base64');
 
     var pem = '-----BEGIN RSA PUBLIC KEY-----\n' 

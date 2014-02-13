@@ -1,7 +1,7 @@
 node-rsa-pem-from-mod-exp
 =========================
 
-Create RSA Public Key PEM from Modulus and Exponent value in [node.js](http://nodejs.org/)
+Create RSA Public Key PEM from Modulus and Exponent value in [node.js](http://nodejs.org/). There are no dependencies to other modules for use.
 
 This allows you to use the modulus/exponent values for validating signed value.
 

@@ -3,8 +3,8 @@ module.exports = rsaPublicKeyPem;
 //http://stackoverflow.com/questions/18835132/xml-to-pem-in-node-js
 function rsaPublicKeyPem(modulus_b64, exponent_b64) {
  
-    var modulus = new Buffer(modulus_b64, 'base64');
-    var exponent = new Buffer(exponent_b64, 'base64');
+    var modulus = Buffer.from(modulus_b64, 'base64');
+    var exponent = Buffer.from(exponent_b64, 'base64');
  
     var modulus_hex = modulus.toString('hex')
     var exponent_hex = exponent.toString('hex')
@@ -27,7 +27,7 @@ function rsaPublicKeyPem(modulus_b64, exponent_b64) {
         '02' + encoded_modlen + modulus_hex +
         '02' + encoded_explen + exponent_hex;
 
-    var der_b64 = new Buffer(encoded_pubkey, 'hex').toString('base64');
+    var der_b64 = Buffer.from(encoded_pubkey, 'hex').toString('base64');
 
     var pem = '-----BEGIN RSA PUBLIC KEY-----\n' 
         + der_b64.match(/.{1,64}/g).join('\n') 

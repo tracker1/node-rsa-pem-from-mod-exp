@@ -49,8 +49,8 @@ describe('Known signature', function(){
         var rawToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6ImF1dGhLZXkgMi4wIn0.eyJzaG9wcGVySWQiOiI5MDc1NTQiLCJmaXJzdG5hbWUiOiIiLCJwbGlkIjoiMSIsImV4cCI6MTM3OTAwMzEyMSwiaWF0IjoxMzc4OTU5OTIxLCJ0eXAiOiJpZHAifQ.HEuUAYI-LqhFkNoZuBlbDA4aRbwCRX_uAJmJ-h5jmmLJWRwgbd-e8LiFXCoLAhqBeCIfaVch4KG4vYO-C-vjEVR7RG1wzCgwh6rGYSn7BK-_7ILlAUvK4j0TQVxDXPxV2uRwuk_N3JhX0gNrK6PmwUctenPt65kcCxn4QExWmabPGnNasePMq-oyDXvIpfEAcsmyZqftoa7-aFuyIlJSxMKF-zPg8wwJ13u677KXbXIcC3w7niYar3DBim3vUWTpbdJzuBqJ13d_rXcFBJUO5YGXGoheqWnJGwH_a-z8kiIayo6RspxT4V68BlzQ6m1H0_tJl9rjN9rtP5Iddjcq3A";
      
         var parts = rawToken.split(/\./g);
-        var bytesToVerify = new Buffer(parts[0] + '.' + parts[1], 'utf8');
-        var signedBytes = new Buffer(parts[2], 'base64');
+        var bytesToVerify = Buffer.from(parts[0] + '.' + parts[1], 'utf8');
+        var signedBytes = Buffer.from(parts[2], 'base64');
 
         var verifier = crypto.createVerify('sha256');
         verifier.update(bytesToVerify);
